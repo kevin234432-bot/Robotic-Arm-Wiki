@@ -1,0 +1,202 @@
+{
+  "schema_version": "1.0",
+  "project": "Robotic-Arm-Wiki",
+  "assignment": "第十週 LLM Wiki 教學 HTML 簡報",
+  "created_on": "2026-11-11",
+  "ingest_definition": "本階段 ingest 指從可查證的外部來源抽取重點，重新摘要為結構化知識條目並建立可追溯的 Wiki 對應。不是下載或完整複製原文，也不是已建置向量資料庫。",
+  "source_count": 6,
+  "source_records": [
+    {
+      "id": "SRC-001",
+      "title": "2.2. Degrees of Freedom of a Robot",
+      "organization": "Northwestern University / Modern Robotics",
+      "authors": [
+        "Kevin M. Lynch",
+        "Frank C. Park"
+      ],
+      "url": "https://modernrobotics.northwestern.edu/nu-gm-book-resource/2-2-degrees-of-freedom-of-a-robot/",
+      "source_type": "官方教材影片與文字稿",
+      "topic": "機械手臂自由度",
+      "summary": "機構的自由度取決於剛體可運動的變數與關節所施加的獨立約束。轉動關節與移動關節通常各提供一個相對自由度；Grübler 公式需要關節約束獨立等假設，不能不加檢查地用於所有閉鏈機構。",
+      "key_facts": [
+        "轉動關節（revolute）允許單一旋轉自由度。",
+        "移動關節（prismatic）允許單一線性自由度。",
+        "自由度計數須注意閉鏈與相依約束。"
+      ],
+      "wiki_pages": [
+        "pages/robot-arm-basics.html"
+      ],
+      "slide_topics": [
+        "機械手臂組成",
+        "自由度與關節"
+      ],
+      "retrieved_on": "2026-11-11",
+      "ingest_method": "人工查證官方來源後，由 AI 重新摘要，記錄於本機結構化知識庫（非原文全文存入）",
+      "ingest_status": "curated_summary_added_to_local_kb",
+      "source_fidelity": "summary_not_fulltext",
+      "limitations": "本筆為來源知識摘要，不代表已完整下載或匯入原文。"
+    },
+    {
+      "id": "SRC-002",
+      "title": "3.3.1. Homogeneous Transformation Matrices",
+      "organization": "Northwestern University / Modern Robotics",
+      "authors": [
+        "Kevin M. Lynch",
+        "Frank C. Park"
+      ],
+      "url": "https://modernrobotics.northwestern.edu/nu-gm-book-resource/3-3-1-homogeneous-transformation-matrices/",
+      "source_type": "官方教材影片與文字稿",
+      "topic": "齊次座標轉換",
+      "summary": "齊次轉換矩陣 T 是 4×4 矩陣，結合 3×3 旋轉矩陣與三維平移向量，用來表示剛體位姿、座標系轉換與位姿組合。矩陣相乘的順序有意義，且一般不可交換；多座標系串接要確認上下標方向。",
+      "key_facts": [
+        "T = [[R,p],[0,0,0,1]]，R 為旋轉矩陣、p 為平移向量。",
+        "T_ab T_bc = T_ac；反向座標變換須使用反矩陣。",
+        "矩陣乘法順序通常不可交換。"
+      ],
+      "wiki_pages": [
+        "pages/homogeneous-transform.html",
+        "pages/heterogeneous-dual-arm.html"
+      ],
+      "slide_topics": [
+        "齊次轉換矩陣",
+        "共同座標系"
+      ],
+      "retrieved_on": "2026-11-11",
+      "ingest_method": "人工查證官方來源後，由 AI 重新摘要，記錄於本機結構化知識庫（非原文全文存入）",
+      "ingest_status": "curated_summary_added_to_local_kb",
+      "source_fidelity": "summary_not_fulltext",
+      "limitations": "官方資料支持一般技術概念；不視為使用者雙臂實驗數據的獨立驗證。"
+    },
+    {
+      "id": "SRC-003",
+      "title": "4.1.1. Product of Exponentials Formula in the Space Frame",
+      "organization": "Northwestern University / Modern Robotics",
+      "authors": [
+        "Kevin M. Lynch",
+        "Frank C. Park"
+      ],
+      "url": "https://modernrobotics.northwestern.edu/nu-gm-book-resource/4-1-1-product-of-exponentials-formula-in-the-space-frame/",
+      "source_type": "官方教材影片與文字稿",
+      "topic": "正向運動學",
+      "summary": "正向運動學利用機構模型與已知關節變數，求得末端相對基座的位姿。此教材以空間座標系中的螺旋軸及指數乘積公式說明開鏈機器人的末端位姿計算；現有 Wiki 使用相鄰齊次矩陣連乘，是同一問題的另一種常見建模表達。",
+      "key_facts": [
+        "輸入關節變數，輸出末端位姿。",
+        "指數乘積公式需預先定義零位位姿 M 與關節螺旋軸。",
+        "本教材使用 POE 表示，現有 Wiki 使用逐節轉換連乘；兩者不可誤稱為同一條公式。"
+      ],
+      "wiki_pages": [
+        "pages/forward-kinematics.html"
+      ],
+      "slide_topics": [
+        "FK 正向運動學"
+      ],
+      "retrieved_on": "2026-11-11",
+      "ingest_method": "人工查證官方來源後，由 AI 重新摘要，記錄於本機結構化知識庫（非原文全文存入）",
+      "ingest_status": "curated_summary_added_to_local_kb",
+      "source_fidelity": "summary_not_fulltext",
+      "limitations": "本筆為來源知識摘要，不代表已完整下載或匯入原文。"
+    },
+    {
+      "id": "SRC-004",
+      "title": "6.2. Numerical Inverse Kinematics (Part 1 of 2)",
+      "organization": "Northwestern University / Modern Robotics",
+      "authors": [
+        "Kevin M. Lynch",
+        "Frank C. Park"
+      ],
+      "url": "https://modernrobotics.northwestern.edu/nu-gm-book-resource/6-2-numerical-inverse-kinematics-part-1-of-2/",
+      "source_type": "官方教材影片與文字稿",
+      "topic": "逆向運動學",
+      "summary": "逆向運動學給定希望達到的末端位姿，求解關節變數。數值法可用 Newton–Raphson 迭代，並利用 Jacobian 或偽逆更新關節估計值。初始值、奇異點與可達性可能影響收斂；現有 Wiki 的平面二連桿解析法不應誤標為此教材的數值解法。",
+      "key_facts": [
+        "IK 由末端目標反求關節變數。",
+        "數值迭代可使用 Jacobian 偽逆。",
+        "可能存在多解、無解或收斂困難。"
+      ],
+      "wiki_pages": [
+        "pages/inverse-kinematics.html"
+      ],
+      "slide_topics": [
+        "IK 逆向運動學"
+      ],
+      "retrieved_on": "2026-11-11",
+      "ingest_method": "人工查證官方來源後，由 AI 重新摘要，記錄於本機結構化知識庫（非原文全文存入）",
+      "ingest_status": "curated_summary_added_to_local_kb",
+      "source_fidelity": "summary_not_fulltext",
+      "limitations": "本筆為來源知識摘要，不代表已完整下載或匯入原文。"
+    },
+    {
+      "id": "SRC-005",
+      "title": "Introduction: PID Controller Design",
+      "organization": "University of Michigan / Control Tutorials for MATLAB and Simulink",
+      "authors": [
+        "Control Tutorials for MATLAB and Simulink 教學團隊"
+      ],
+      "url": "https://ctms.engin.umich.edu/CTMS/index.php?example=Introduction&section=ControlPID",
+      "source_type": "大學控制工程教學網頁",
+      "topic": "PID 回授控制",
+      "summary": "PID 是由比例、積分與微分三項構成的回授控制器。P 對目前誤差反應，I 累積歷史誤差，D 反映誤差變化趨勢；參數選擇會影響暫態響應、穩態誤差與控制輸出。機械手臂實機還需考慮飽和與安全限制。",
+      "key_facts": [
+        "P、I、D 三項對誤差的作用不同。",
+        "控制器參數需依系統動態與控制目標調整。",
+        "PID 概念教材不是機械手臂實機安全驗證報告。"
+      ],
+      "wiki_pages": [
+        "pages/pid-control.html"
+      ],
+      "slide_topics": [
+        "PID 回授控制"
+      ],
+      "retrieved_on": "2026-11-11",
+      "ingest_method": "人工查證官方來源後，由 AI 重新摘要，記錄於本機結構化知識庫（非原文全文存入）",
+      "ingest_status": "curated_summary_added_to_local_kb",
+      "source_fidelity": "summary_not_fulltext",
+      "limitations": "本筆為來源知識摘要，不代表已完整下載或匯入原文。"
+    },
+    {
+      "id": "SRC-006",
+      "title": "REP-103: Standard Units of Measure and Coordinate Conventions",
+      "organization": "Open Robotics / Robotics Enhancement Proposals",
+      "authors": [
+        "ROS 社群（REP-103）"
+      ],
+      "url": "https://reps.openrobotics.org/rep-0103/",
+      "source_type": "ROS 規範文件",
+      "topic": "座標系與單位",
+      "summary": "REP-103 定義 ROS 的標準單位與座標系慣例：長度採公尺、角度採弧度，座標系通常採右手系。不同設備整合時需要檢查軸方向、角度表示與單位一致性；這可作為雙臂共用座標系的一般工程檢查依據，但不代表已驗證特定兩支手臂的標定精度。",
+      "key_facts": [
+        "長度使用 meter；角度使用 radian。",
+        "座標系遵循右手系慣例。",
+        "相機光學座標系可能使用不同軸方向，需明確轉換。"
+      ],
+      "wiki_pages": [
+        "pages/homogeneous-transform.html",
+        "pages/heterogeneous-dual-arm.html"
+      ],
+      "slide_topics": [
+        "雙手臂座標系",
+        "資料單位檢查"
+      ],
+      "retrieved_on": "2026-11-11",
+      "ingest_method": "人工查證官方來源後，由 AI 重新摘要，記錄於本機結構化知識庫（非原文全文存入）",
+      "ingest_status": "curated_summary_added_to_local_kb",
+      "source_fidelity": "summary_not_fulltext",
+      "limitations": "官方資料支持一般技術概念；不視為使用者雙臂實驗數據的獨立驗證。"
+    }
+  ],
+  "wiki_page_count": 6,
+  "wiki_pages_expected": [
+    "pages/robot-arm-basics.html",
+    "pages/forward-kinematics.html",
+    "pages/inverse-kinematics.html",
+    "pages/homogeneous-transform.html",
+    "pages/pid-control.html",
+    "pages/heterogeneous-dual-arm.html"
+  ],
+  "research_case_note": "NIRYO NED + TM Robot 的已完成實驗事項只能由自己的研究紀錄佐證；SRC-002 與 SRC-006 僅支持座標轉換的一般原理。",
+  "pending_tasks": [
+    "在 GitHub Pages 上驗證此資料檔可存取",
+    "後續產生 HTML 簡報並對照 source_id",
+    "如教師要求原文全文 ingest 或向量檢索，需另追加原文檔案／索引及驗證"
+  ]
+}
